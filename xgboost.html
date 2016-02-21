@@ -8,7 +8,7 @@
     <meta name="author" content="Jiapeng Wang" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 
-    <title>xgboost Project - Jiapeng's Blog</title>
+    <title>xgboost project - Jiapeng's Blog</title>
 
    
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
@@ -69,8 +69,8 @@
   Tue 16 February 2016
 </abbr> <h1>
   <a href="/xgboost.html" rel="bookmark"
-     title="Permalink to xgboost Project">
-    xgboost Project
+     title="Permalink to xgboost project">
+    xgboost project
   </a>
 </h1><div class="article-header-info">
   <p>
@@ -118,11 +118,8 @@
 </ul>
 </li>
 <li>
-<p>Prediction (<strong>xgboost</strong>: done, <strong>logistic regression</strong>: doing)</p>
+<p>Prediction(<strong>xgboost</strong>: done, <strong>logistic regression</strong>: doing)</p>
 <ul>
-<li>
-<p>Model Preparing</p>
-</li>
 <li>
 <p>Model Training (Grid Search &amp; Cross Validation using train set)</p>
 </li>
@@ -310,6 +307,70 @@ plt.annotate(&#39;less than 1 year goes up&#39;, xy=(af_perc_l0/2 - 11,5.5),size
 
 <p><code></code> `
 <img alt=" customer transition matrix " src="https://lh3.googleusercontent.com/ReDXbaC5xYCmXWpdsfFb3DA7klhXkZ-ot9pG9DPc96M419GZC6YpSNVWqrNmNefIp2kU8TWmNK0Z52dZN0StSYAWRm3Icd4D9HFHsw2wLUKthP80HHOexVtO8mP1Cv1exbeAmLAyPdGC3oUyWE1lz_JL3fy2hh5019O4JvwDIJQENbT9_hLy70luRPKjoase6vjKJoIDYkjHWcay-xIuKVPyo6bp0KwVoYWDSF0k-wRN7fffk9Wlvga9V181YCs1MVUj4xZTt-SNO1kc0qtLpsM11vtMZaxCz_LAgZG2fjNaRW1Sw4xhKAk8Nfh08k7ZmWjfFf722bjMe1EwlFssR_-x7tVNu8FukzkZ1F4V_P_sTj2wdTlnArh6FY78tONQBnIWz1YMAj7KwyTlVN7G6qdcI3sWLgGGhgARUcaKQlCZ9rJcY7lvnfCxETp1ssXmkwERGRC3nRvAp7tSTuBiXFWHODozF7nRIus3RCg-GJT5fct_Ogl3OBR89RWn7Jze-11gIFVJgpDZ-4rmVqZEVXMFiZzlWuMV_l6TvXmHOvkJLHC8Ksvurx1-CQ3zMTnyn10=w600-h448-no" /></p>
+<h3>Prediction</h3>
+<h4>Data Preprocessing</h4>
+<p><strong>Data preprocessing(tag)</strong></p>
+<div class="highlight"><pre>    # Encoding categorical features¶
+    for i in data.columns:
+        if data[i].dtype == &#39;object&#39;:
+            label = preprocessing.LabelEncoder()
+            label.fit(np.unique(list(data[i].values)))
+            data[i] = label.transform(list(data[i].values)) 
+</pre></div>
+
+
+<p><strong>Train,validation and test data split</strong></p>
+<div class="highlight"><pre>    # Prepare the train &amp; test dataset
+    X_data = data.drop([&#39;PRODUCT_CATEGORY_AFTER_RENEWAL&#39;,&#39;PRODUCT_LENGTH_AFTER_RENEWAL&#39;],axis =1)
+    y_data = data[&#39;PRODUCT_CATEGORY_AFTER_RENEWAL&#39;]
+    z_data = data[&#39;PRODUCT_LENGTH_AFTER_RENEWAL&#39;]
+
+    # Separate the dataset into Train_validation and test set
+    X_train_val, X_test, y_train_val, y_test = cross_validation.train_test_split(X_data, y_data, test_size=0.1, random_state=0)
+</pre></div>
+
+
+<h4>Prediction</h4>
+<p><strong>Model Training (Grid Search &amp; Cross Validation using train set)</strong></p>
+<div class="highlight"><pre>    # XGBoost model training
+    # 4-fold train data Cross-validation
+
+    n_observe = X_train_val.shape[0]
+    n_folds = 4
+    nrounds = 10
+    val_scores = 0.0
+    cv = KFold(n = n_observe, n_folds=n_folds) 
+
+
+    for train, validation in cv:
+
+    # Set the xgboost classifier model
+        xgb_model = xgb.XGBClassifier(nrounds)
+
+    # Grid search with xgboost classifier
+        clf = GridSearchCV(
+            xgb_model,
+            param_grid,
+            cv=10,
+            verbose=10,
+            n_jobs=1,
+        )
+
+    # Train the xgb classifier
+        clf.fit(X_train_val.iloc[train], y_train_val.iloc[train]) 
+        val_scores += cv_clf.score(X_train_val.iloc[validation], y_train_val.iloc[validation])
+        val_scores /= n_folds
+
+    # Validation score
+    print(&quot;Accuracy: {:.4f}&quot;.format(val_scores))
+</pre></div>
+
+
+<p><strong>Real prediction (Prediction using test set)</strong></p>
+<div class="highlight"><pre>    # Test score
+    test_scores = cv_clf.score(X_test,y_test)
+    print(&quot;Accuracy: {:.4f}&quot;.format(test_scores))
+</pre></div>
   </div>
   
 
