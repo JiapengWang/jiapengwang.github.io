@@ -166,7 +166,8 @@
 <p>post later ...</p>
 <h4>Statistical Description</h4>
 <p><strong>Transition Matrix</strong></p>
-<p>、、、</p>
+<p>The heatmap is divided into four parts and each part represents a transition frequency matrix, the darker the cube, the more likely there is a transition. For instance, the lower left area is a direct to broker transition matrix, as we can see, the direct 4, 6, 7 are the heaviest roll out products. Meanwhile the broker 4, 19, 20 are the most popular roll in products, vice versa. Among our further analysis, we will focus on why and how likely these customers decided to amend the channel.
+、、、</p>
 <div class="highlight"><pre>#Prepare data
 
 plt.figure(figsize=(40,30))
@@ -194,8 +195,9 @@ plt.annotate(&#39;Broker =&gt; Direct&#39;, xy=(31, 22),size =30, weight = &#39;
 
 
 <p>、、、</p>
-<p><img alt=" customer transition matrix " src="https://lh3.googleusercontent.com/imIWReGbstP4Rdp84f21RgyEUiqtTG1Jip7r_JTf0u4jCjA69AwkL6dYqJ0sAUgnMkdhitiqg3XcHVxiz3gljmQyx0or2TD4OmrMVKXIfIYG0FlCJqsb-ulz2ltay-heNQiLUOFWBZu2uk8Pj6FnhoO356ZCgd1m2LGB5qe264gd0SQxKDPQWd6KtCmGTMV1620UGn9UHF7sD48EX9aXh0VRZOePPxxcWvWKPBZ4v6cyBmkXDPyPbd9xx8uTm4-fnZHETx5wZ0P5iGkAbY-PPi_-EBMUzFag1Ek-ri9nqNybVw0lekdsYaoM49mADTF08fB5__-FnTPNb4VAXeijRzMF_JPYzXXPdUQFocJTJKACFTb23eEGzyhebQMK-w9MEV6hdrayaLAkJpfAgOY8pn5YY_hScLz2CHNA_1K0arFAiWggB9k9O9YG7PsYHYCOiE8LXGGL3YzHacLlkoiFMHVxzdfeTTNe0AQ1dAS354TfGpfp68jGrQkplx9D7jB24g3UwfyPSOAclvBmBaqtSJgiE3281yjzi8EP67ZVTce9qDSoMEqxjvIr5On3c7z7xTM=w1514-h1296-no" /></p>
+<p><img alt=" customer transition matrix " src="/Users/tongtong9078/Desktop/a.png" title="=600x500" /></p>
 <p><strong>Customer occupation</strong></p>
+<p>As we can see, there is an obvious shrink of 1 year product length customers, which decreased from 83.3% to 58.1%. Meanwhile, a lot of customers amend their contracts to less than 1 year product, which is nine fold of previous contract. With 3 and 4 years product length increasing, customers who chose 2 years product length experienced a small decrease. In conclusion, we will consider more about the great fluctuation between less than 1 year product length and 1 year product length.</p>
 <p><code></code> `</p>
 <div class="highlight"><pre># Product length before renewal
 
@@ -307,7 +309,7 @@ plt.annotate(&#39;less than 1 year goes up&#39;, xy=(af_perc_l0/2 - 11,5.5),size
 
 
 <p><code></code> `
-<img alt=" customer transition matrix " src="https://lh3.googleusercontent.com/3CA-zo8rGG1b16U7elgeMiaa-mbr-pyrwQP-YV7OcBRbyoSj9n2ZAYHsreGLTZRob2rvEGSiuW5WQcnfxDHIOSSiG4HyjyepZQfPeO1PjLm3W-fq3TUeHbR7tWnic-Ge_wITwYDycyMQtY7l1glt0RanbaaAGxoAKLOOyAN9dPLtLnzUXxKWLiDDycwDp_2sSvJ31FWr9ToVLVA1yP-ghPPmeF2MiHMlGwsiJKKx0wKepzYlG7nBROBR2CzPhBA8QXwkNHTpYSCy7Jc40AnfcaCFfbUC98bEDMmIWNTDIq442O0CMIGEY2-XGS7VLcHUXqh52uvsUvvJ_d2FJWx_d0Gm4hOhgZy_mA78FCqyLyprREBvURapAqanS7S9Z8d5lVEwTECylMmXjuEi9yBrmSI86PGxybm_l58ehBkF7ygNBl_H3RbPGvhmnyp4v7UF60T7U4ATK0arXwkcB31UM3GhmNFjdguePp15U9Vp59O0t9MrpZzpDdYlH42SukaL6WhC_smPo4lTV_KmJAJc_vu36U8jRWA5MM8rQlE6TQRMkbL-BJhFM5J1ObkT8NQmD80=w1394-h222-no" /></p>
+<img alt=" customer transition matrix " src="/Users/tongtong9078/Desktop/b.png" title="=600x500" /></p>
   </div>
   
 
