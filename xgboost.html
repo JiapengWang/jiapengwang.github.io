@@ -165,7 +165,29 @@
 <p><strong>Transition Matrix</strong></p>
 <p>The heatmap is divided into four parts and each part represents a transition frequency matrix, the darker the cube, the more likely there is a transition. For instance, the lower left area is a direct to broker transition matrix, as we can see, the direct 4, 6, 7 are the heaviest roll out products. Meanwhile the broker 4, 19, 20 are the most popular roll in products, vice versa. Among our further analysis, we will focus on why and how likely these customers decided to amend the channel.
 、、、</p>
-<div class="highlight"><pre>#Prepare data
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre>#Prepare data
 
 plt.figure(figsize=(40,30))
 data2 = data.groupby([&#39;FIRST_CHANNEL&#39;,&#39;LAST_RENEWAL_CHANNEL&#39;]).count()
@@ -189,14 +211,119 @@ plt.annotate(&#39;Direct =&gt; Broker&#39;, xy=(6, 1),size =30, weight = &#39;se
 plt.annotate(&#39;Broker =&gt; Broker&#39;, xy=(6, 22),size =30, weight = &#39;semibold&#39;)
 plt.annotate(&#39;Broker =&gt; Direct&#39;, xy=(31, 22),size =30, weight = &#39;semibold&#39;)
 </pre></div>
-
+</td></tr></table>
 
 <p>、、、</p>
 <p><img alt=" customer transition matrix " src="https://lh3.googleusercontent.com/sXEbiIc-Z9l-U2bzkO0iSz9MmzNNbQU0jkVaQjl9RzaUiEKnYZCCTywl079oXuncZA_qmVGk0GRjCOUWksxM8Tk-K98ls8Sx5rx3bVvSmAY9DgsE40TdjZyyqv7NigkzoA7a5jZUguwJQ_ZEnOAVfpTAxb5NMbeU9t-fWi4-3gQt3K7W-EA_ygSQexSTCxU_R8VBXyGuF3AD5Nk8H1s5ogRv4EL-hkB6VdmJ4Rp9gGWwwUCiV0dVEuEKGbhEtqqHzKALvNoRCti_hr-H-oXI7zhdktppMLf9dwD7P4Y3X-5zJtCq-n6ELKndyhgRVHi2pEqr0pvdzKtPVvBrP6C_NxBQPVcUZ1fgCaJFMPskVr_l2LQ-_u7SCT07Y4QuvQe59yesYDTJnhFPMMDtgckDvIzvWo7BN6IAKcWy6YjopgN5L81TN0x0_aVsAYQo7DksPXnhY7RHTEpxtIB1yymVXMqmoQNXz9Wo8M_WpTjXKp5IlHmDJVkwK_DYwnIGgDqn_dpldsYL79_mZuxD5KpMQkBKhXJkOElUa2WFSczmv62gbmuWCus4VcNbJbqBmdBHlYc=w600-h529-no" /></p>
 <p><strong>Customer occupation</strong></p>
 <p>As we can see, there is an obvious shrink of 1 year product length customers, which decreased from 83.3% to 58.1%. Meanwhile, a lot of customers amend their contracts to less than 1 year product, which is nine fold of previous contract. With 3 and 4 years product length increasing, customers who chose 2 years product length experienced a small decrease. In conclusion, we will consider more about the great fluctuation between less than 1 year product length and 1 year product length.</p>
 <p><code></code> `</p>
-<div class="highlight"><pre># Product length before renewal
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106</pre></div></td><td class="code"><div class="highlight"><pre># Product length before renewal
 
 # calculate figures
 total = data.PRODUCT_LENGTH_BEFORE_RENEWAL.count()
@@ -303,24 +430,35 @@ plt.plot([5 + af_perc_l0 + af_perc_l1 + af_perc_l2+af_perc_l3+af_perc_l4*2, 5+af
 
 plt.annotate(&#39;less than 1 year goes up&#39;, xy=(af_perc_l0/2 - 11,5.5),size =20, weight = &#39;semibold&#39;,color=&#39;#b45e62&#39;)
 </pre></div>
-
+</td></tr></table>
 
 <p><code></code> `
 <img alt=" customer transition matrix " src="https://lh3.googleusercontent.com/ReDXbaC5xYCmXWpdsfFb3DA7klhXkZ-ot9pG9DPc96M419GZC6YpSNVWqrNmNefIp2kU8TWmNK0Z52dZN0StSYAWRm3Icd4D9HFHsw2wLUKthP80HHOexVtO8mP1Cv1exbeAmLAyPdGC3oUyWE1lz_JL3fy2hh5019O4JvwDIJQENbT9_hLy70luRPKjoase6vjKJoIDYkjHWcay-xIuKVPyo6bp0KwVoYWDSF0k-wRN7fffk9Wlvga9V181YCs1MVUj4xZTt-SNO1kc0qtLpsM11vtMZaxCz_LAgZG2fjNaRW1Sw4xhKAk8Nfh08k7ZmWjfFf722bjMe1EwlFssR_-x7tVNu8FukzkZ1F4V_P_sTj2wdTlnArh6FY78tONQBnIWz1YMAj7KwyTlVN7G6qdcI3sWLgGGhgARUcaKQlCZ9rJcY7lvnfCxETp1ssXmkwERGRC3nRvAp7tSTuBiXFWHODozF7nRIus3RCg-GJT5fct_Ogl3OBR89RWn7Jze-11gIFVJgpDZ-4rmVqZEVXMFiZzlWuMV_l6TvXmHOvkJLHC8Ksvurx1-CQ3zMTnyn10=w600-h448-no" /></p>
 <h3>Prediction</h3>
 <h4>Data Preprocessing</h4>
 <p><strong>Data preprocessing(tag)</strong></p>
-<div class="highlight"><pre>    # Encoding categorical features¶
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre>    # Encoding categorical features¶
     for i in data.columns:
         if data[i].dtype == &#39;object&#39;:
             label = preprocessing.LabelEncoder()
             label.fit(np.unique(list(data[i].values)))
             data[i] = label.transform(list(data[i].values)) 
 </pre></div>
-
+</td></tr></table>
 
 <p><strong>Train,validation and test data split</strong></p>
-<div class="highlight"><pre>    # Prepare the train &amp; test dataset
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre>    # Prepare the train &amp; test dataset
     X_data = data.drop([&#39;PRODUCT_CATEGORY_AFTER_RENEWAL&#39;,&#39;PRODUCT_LENGTH_AFTER_RENEWAL&#39;],axis =1)
     y_data = data[&#39;PRODUCT_CATEGORY_AFTER_RENEWAL&#39;]
     z_data = data[&#39;PRODUCT_LENGTH_AFTER_RENEWAL&#39;]
@@ -328,11 +466,41 @@ plt.annotate(&#39;less than 1 year goes up&#39;, xy=(af_perc_l0/2 - 11,5.5),size
     # Separate the dataset into Train_validation and test set
     X_train_val, X_test, y_train_val, y_test = cross_validation.train_test_split(X_data, y_data, test_size=0.1, random_state=0)
 </pre></div>
-
+</td></tr></table>
 
 <h4>Prediction</h4>
 <p><strong>Model Training (Grid Search &amp; Cross Validation using train set)</strong></p>
-<div class="highlight"><pre>    # XGBoost model training
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="highlight"><pre>    # XGBoost model training
     # 4-fold train data Cross-validation
 
     n_observe = X_train_val.shape[0]
@@ -364,13 +532,16 @@ plt.annotate(&#39;less than 1 year goes up&#39;, xy=(af_perc_l0/2 - 11,5.5),size
     # Validation score
     print(&quot;Accuracy: {:.4f}&quot;.format(val_scores))
 </pre></div>
-
+</td></tr></table>
 
 <p><strong>Real prediction (Prediction using test set)</strong></p>
-<div class="highlight"><pre>    # Test score
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre>    # Test score
     test_scores = cv_clf.score(X_test,y_test)
     print(&quot;Accuracy: {:.4f}&quot;.format(test_scores))
 </pre></div>
+</td></tr></table>
   </div>
   
 
