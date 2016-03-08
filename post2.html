@@ -15,6 +15,8 @@
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />  
 
 
+      <link rel="stylesheet" href="./theme/css/pygment.css" />
+      <link rel="stylesheet" href="./theme/css/voidybootstrap.css" />
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -58,11 +60,13 @@
 	<div class="jumbotron" id="overview">
 	  <div class="container">
 		<h1><a href="./">Jiapeng's Blog</a></h1>
+		<p class="lead">A place to record my self-taught path.</p>
 	  </div>
 	</div>
 
     <div class="container" id="main-container">
-        <div class="" id="content">
+      <div class="row">
+        <div class="col-md-9" id="content">
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
@@ -114,7 +118,27 @@
 </ul>
   </div>
   
+<div class="article-tag-list">
+<span class="label label-default">Tags</span>
+	<a href="./tag/pelican.html"><i class="fa fa-tag"></i>pelican</a>&nbsp;
+	<a href="./tag/publishing.html"><i class="fa fa-tag"></i>publishing</a>&nbsp;
+</div>  <hr />
+  <div class="well well-sm">  <!-- Social media sharing buttons -->
 
+    <!-- Google+ -->
+    <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="g-plusone" data-size="medium"></div>&nbsp;
+
+    <!-- Facebook -->
+    <div class="fb-like" 
+        data-href="./post2.html" 
+        data-layout="button_count" 
+        data-action="like" data-show-faces="true" 
+        data-share="true">
+    </div>
+    &nbsp;
+  </div> <!-- /Social media sharing buttons -->
   <div class="comments">
 	<h2>Comments</h2>
 	<div id="disqus_thread"></div>
@@ -131,6 +155,61 @@
 </article>
         </div><!-- /content -->
 
+        <div class="col-md-3 sidebar-nav" id="sidebar">
+
+<div class="row">
+
+<div class="col-xs-6 col-md-12">
+<h4><i class="fa fa-comment fa-fw fa-lg"></i> Social</h4>
+<ul class="list-unstyled social-links">
+    <li><a href="http://github.com/jiapengwang" target="_blank">
+	  <i class="fa fa-github-square fa-fw fa-lg" title="GitHub"></i>
+		GitHub
+	</a></li>
+</ul>
+</div>
+
+<div class="col-xs-6 col-md-12">
+<h4><i class="fa fa-folder fa-fw fa-lg"></i> Categories</h4>
+<ul class="list-unstyled category-links">
+  <li><a href="./category/data-science.html" >
+    <i class="fa fa-folder-open fa-fw fa-lg"></i> data science</a></li>
+  <li><a href="./category/introduction.html" >
+    <i class="fa fa-folder-open fa-fw fa-lg"></i> Introduction</a></li>
+  <li><a href="./category/machine-learning.html" >
+    <i class="fa fa-folder-open fa-fw fa-lg"></i> Machine Learning</a></li>
+  <li><a href="./category/quant.html" >
+    <i class="fa fa-folder-open fa-fw fa-lg"></i> Quant</a></li>
+</ul>
+</div>
+
+</div> <!-- /row -->
+
+<h4><i class="fa fa-link fa-fw fa-lg"></i> Links</h4>
+<ul class="list-unstyled category-links">
+  <li><a href=http://biologeek.org >
+    <i class="fa fa-fw fa-external-link-square fa-lg"></i> Biologeek</a></li>
+  <li><a href=http://filyb.info/ >
+    <i class="fa fa-fw fa-external-link-square fa-lg"></i> Filyb</a></li>
+  <li><a href=http://www.libert-fr.com >
+    <i class="fa fa-fw fa-external-link-square fa-lg"></i> Libert-fr</a></li>
+  <li><a href=http://prendreuncafe.com/blog/ >
+    <i class="fa fa-fw fa-external-link-square fa-lg"></i> N1k0</a></li>
+  <li><a href=http://ziade.org/blog >
+    <i class="fa fa-fw fa-external-link-square fa-lg"></i> Tarek Ziadé</a></li>
+  <li><a href=http://zubin71.wordpress.com/ >
+    <i class="fa fa-fw fa-external-link-square fa-lg"></i> Zubin Mithra</a></li>
+</ul>
+
+<h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
+<p class="tag-cloud">
+</p>
+
+
+<hr />
+
+        </div><!--/sidebar -->
+      </div><!--/row-->
     </div><!--/.container /#main-container -->
 
     <footer id="site-footer">
@@ -164,5 +243,30 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 
-  </body>
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google+ -->
+<!-- Synchronous 
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+-->
+<!-- Asynchronous -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>  </body>
 </html>
